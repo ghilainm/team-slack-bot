@@ -1,0 +1,5 @@
+
+== Overview
+
+This repository aims at showcasing implementation of a Slack bot and at automating
+several recurrent team tasks using slack bot.
