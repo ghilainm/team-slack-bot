@@ -1,5 +1,5 @@
 orbs:
-  gradle: circleci/gradle@7.1.1
+  gradle: circleci/gradle@2.2.0
 version: 2.1
 workflows:
   checkout-build-test:
