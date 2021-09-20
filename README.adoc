@@ -1,4 +1,6 @@
 
+image:https://circleci.com/gh/ghilainm/team-slack-bot/tree/main.svg?style=svg["CircleCI", link="https://circleci.com/gh/ghilainm/team-slack-bot/tree/main"]
+
 == Overview
 
 This repository aims at showcasing implementation of a Slack bot and at automating
