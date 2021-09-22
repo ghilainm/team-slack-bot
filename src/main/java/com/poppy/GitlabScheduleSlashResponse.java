@@ -14,14 +14,11 @@ public class GitlabScheduleSlashResponse extends SlashCommandResponse {
             this.setText("No gitlab schedule to be checked configured for context "+ctx.getChannelId());
         } else {
             this.setText(schedules.stream()
-                    .map(response -> response.getScheduleId().getAlias() + " - " + getStatus(response.getSchedule()) + response.getTestReport().map(testReport -> " - " + testReport.summary()).orElse(""))
+                    .map(GitlabScheduleResponse::summary)
                     .collect(Collectors.joining("\n")));
         }
         this.setResponseType("in_channel");
     }
 
-    private String getStatus(PipelineSchedule schedule) {
-        return schedule.getLastPipeline().getStatus().toString();
-    }
 
 }

@@ -10,10 +10,13 @@ import org.springframework.context.annotation.Configuration;
 public class SlackConfiguration {
 
     @Bean
-    App app(ChuckNorisService chuckNorisService, GitlabService gitlabService) {
+    App app(ChuckNorisService chuckNorisService, SlackScheduleStatusHandler scheduleStatusHandler) {
         var app = new App();
         app.command("/alim", (req, ctx) -> ctx.ack(chuckNorisService.getRandomJoke()));
-        app.command("/st-status", (req, ctx) -> ctx.ack(new GitlabScheduleSlashResponse(ctx, gitlabService.getSchedulesForContext(ctx.getChannelId()))));
+        app.command("/st-status", (req, ctx) -> {
+            scheduleStatusHandler.answerToScheduleStatus(req, ctx);
+            return ctx.ack();
+        });
         return app;
     }
 }

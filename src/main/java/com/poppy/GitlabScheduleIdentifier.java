@@ -10,5 +10,6 @@ public class GitlabScheduleIdentifier {
     private String alias;
     private String projectId;
     private int scheduleId;
+    private String testResultUrl;
 
 }
