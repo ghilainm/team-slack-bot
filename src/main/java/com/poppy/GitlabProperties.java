@@ -12,6 +12,6 @@ import java.util.Map;
 @ConfigurationProperties("gitlab")
 public class GitlabProperties {
 
-    private Map<String, List<GitlabScheduleIdentifier>> schedules;
+    private Map<String, List<GitlabScheduleInfo>> schedules;
 
 }

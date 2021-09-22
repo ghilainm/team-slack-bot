@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.gitlab4j.api.models.PipelineSchedule;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
@@ -15,7 +14,7 @@ import java.util.Optional;
 @Setter
 public class GitlabScheduleResponse {
 
-    private final GitlabScheduleIdentifier scheduleId;
+    private final GitlabScheduleInfo scheduleId;
     private final PipelineSchedule schedule;
     private final TestReport testReport;
 
@@ -24,7 +23,7 @@ public class GitlabScheduleResponse {
     }
 
     public String summary() {
-       return schedule.getDescription() + " - " + getStatus(schedule) + getTestReportSummary() + "("+scheduleId.getTestResultUrl()+")";
+       return scheduleId.getAlias() + " - " + getStatus(schedule) + getTestReportSummary() + "("+scheduleId.getTestResultUrl()+")";
     }
 
     private String getTestReportSummary() {

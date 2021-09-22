@@ -12,7 +12,10 @@ public class SlackConfiguration {
     @Bean
     App app(ChuckNorisService chuckNorisService, SlackScheduleStatusHandler scheduleStatusHandler) {
         var app = new App();
-        app.command("/alim", (req, ctx) -> ctx.ack(chuckNorisService.getRandomJoke()));
+        app.command("/alim", (req, ctx) -> {
+            ctx.respond(chuckNorisService.getRandomJoke());
+            return ctx.ack();
+        });
         app.command("/st-status", (req, ctx) -> {
             scheduleStatusHandler.answerToScheduleStatus(req, ctx);
             return ctx.ack();

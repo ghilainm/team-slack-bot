@@ -24,12 +24,12 @@ public class GitlabService {
     private final ObjectMapper objectMapper;
 
     @SneakyThrows
-    public GitlabScheduleResponse getSchedule(GitlabScheduleIdentifier gitlabScheduleIdentifier) {
-        PipelineSchedule pipelineSchedule = gitLabApi.getPipelineApi().getPipelineSchedule(gitlabScheduleIdentifier.getProjectId(), gitlabScheduleIdentifier.getScheduleId());
-        Optional<TestReport> testReport = getTestReport(gitlabScheduleIdentifier.getProjectId(), pipelineSchedule.getLastPipeline().getId());
+    public GitlabScheduleResponse getSchedule(GitlabScheduleInfo gitlabScheduleInfo) {
+        PipelineSchedule pipelineSchedule = gitLabApi.getPipelineApi().getPipelineSchedule(gitlabScheduleInfo.getProjectId(), gitlabScheduleInfo.getScheduleId());
+        Optional<TestReport> testReport = getTestReport(gitlabScheduleInfo.getProjectId(), pipelineSchedule.getLastPipeline().getId());
         return GitlabScheduleResponse.builder()
                 .schedule(pipelineSchedule)
-                .scheduleId(gitlabScheduleIdentifier)
+                .scheduleId(gitlabScheduleInfo)
                 .testReport(testReport.orElse(null))
                 .build();
     }
@@ -38,7 +38,7 @@ public class GitlabService {
         if (!gitlabProperties.getSchedules().containsKey(contextKey)) {
             return Collections.emptyList();
         }
-        List<GitlabScheduleIdentifier> scheduleConfiguration = gitlabProperties.getSchedules().get(contextKey);
+        List<GitlabScheduleInfo> scheduleConfiguration = gitlabProperties.getSchedules().get(contextKey);
         return scheduleConfiguration.stream()
                 .map(this::getSchedule)
                 .collect(Collectors.toList());

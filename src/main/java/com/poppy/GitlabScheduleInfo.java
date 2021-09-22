@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class GitlabScheduleIdentifier {
+public class GitlabScheduleInfo {
 
     private String alias;
     private String projectId;
