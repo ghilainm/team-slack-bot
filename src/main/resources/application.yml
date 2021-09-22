@@ -3,3 +3,10 @@ server:
 logging:
   level:
     "com.slack.api": debug
+    "org.gitlab4j.api": trace
+gitlab:
+  schedules:
+    CHJHW8WE8:
+      - projectId: 182
+        scheduleId: 38
+        alias: "transit-oo-dep - arhs-ci"

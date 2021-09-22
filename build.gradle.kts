@@ -10,6 +10,7 @@ repositories {
 
 dependencies {
   annotationProcessor("org.projectlombok:lombok:1.18.20")
+  annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:2.5.4")
   compileOnly("org.projectlombok:lombok:1.18.20")
   implementation("com.slack.api:bolt:1.12.1")
   implementation("com.slack.api:bolt-servlet:1.12.1")
@@ -19,5 +20,10 @@ dependencies {
 }
 
 tasks.withType<org.springframework.boot.gradle.tasks.run.BootRun>().forEach {
-  it.environment = mapOf("SLACK_BOT_TOKEN" to project.properties["slack.bot.token"], "SLACK_SIGNING_SECRET" to project.properties["slack.signing.secret"])
+  it.environment = mapOf(
+    "SLACK_BOT_TOKEN" to project.properties["slack.bot.token"],
+    "SLACK_SIGNING_SECRET" to project.properties["slack.signing.secret"],
+    "GITLAB_API_URL" to project.properties["gitlab.api.url"],
+    "GITLAB_API_TOKEN" to project.properties["gitlab.api.token"],
+  )
 }

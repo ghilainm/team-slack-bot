@@ -10,9 +10,10 @@ import org.springframework.context.annotation.Configuration;
 public class SlackConfiguration {
 
     @Bean
-    App app(ChuckNorisService chuckNorisService) {
+    App app(ChuckNorisService chuckNorisService, GitlabService gitlabService) {
         var app = new App();
         app.command("/alim", (req, ctx) -> ctx.ack(chuckNorisService.getRandomJoke()));
+        app.command("/st-status", (req, ctx) -> ctx.ack(new GitlabScheduleSlashResponse(ctx, gitlabService.getSchedulesForContext(ctx.getChannelId()))));
         return app;
     }
 }
