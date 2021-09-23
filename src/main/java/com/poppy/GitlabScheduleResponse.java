@@ -23,7 +23,7 @@ public class GitlabScheduleResponse {
     }
 
     public String summary() {
-       return scheduleId.getAlias() + " - " + getStatus(schedule) + getTestReportSummary() + "("+scheduleId.getTestResultUrl()+")";
+       return scheduleId.getAlias() + " - " + getStatus(schedule) + getTestReportSummary() + "("+scheduleId.getTestResultUrl()+" - "+schedule.getLastPipeline().getWebUrl()+")";
     }
 
     private String getTestReportSummary() {
