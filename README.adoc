@@ -5,3 +5,16 @@ image:https://circleci.com/gh/ghilainm/team-slack-bot/tree/main.svg?style=svg["C
 
 This repository aims at showcasing implementation of a Slack bot and at automating
 several recurrent team tasks using slack bot.
+
+== Supported commands
+
+
+|===
+|Header 1 |Header 2
+
+|/alim
+|Tell chuck noris joke
+
+|/st-status
+|Check the status of Gitlab scheduled pipelines linked to the channel and publish the results (pipeline status/test report/additional detail url/pipeline URL)
+|===

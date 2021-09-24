@@ -4,38 +4,3 @@ logging:
   level:
     "com.slack.api": info
     "org.gitlab4j.api": info
-gitlab:
-  schedules:
-    CHJHW8WE8:
-      - projectId: 182
-        scheduleId: 38
-        testResultUrl: https://allure.ada-luccs.internal-work.io/allure-ui/allure-docker-service-ui/projects/transit-oo-dep-service-sys-arhs-ci-develop
-        alias: dep
-      - projectId: 379
-        scheduleId: 43
-        testResultUrl: https://allure.ada-luccs.internal-work.io/allure-ui/allure-docker-service-ui/projects/transit-oo-des-service-sys-arhs-ci-develop
-        alias: des
-      - projectId: 436
-        scheduleId: 71
-        testResultUrl: https://allure.ada-luccs.internal-work.io/allure-ui/allure-docker-service-ui/projects/transit-enquiry-service-sys-arhs-ci-develop
-        alias: enquiry
-      - projectId: 490
-        scheduleId: 94
-        testResultUrl: https://allure.ada-luccs.internal-work.io/allure-ui/allure-docker-service-ui/projects/transit-incident-sys-arhs-ci-develop
-        alias: incident
-      - projectId: 493
-        scheduleId: 89
-        testResultUrl: https://allure.ada-luccs.internal-work.io/allure-ui/allure-docker-service-ui/projects/transit-any-country-service-sys-arhs-ci-develop
-        alias: any-country
-      - projectId: 382
-        scheduleId: 102
-        testResultUrl: https://allure.ada-luccs.internal-work.io/allure-ui/allure-docker-service-ui/projects/transit-oo-ext-tra-service-sys-arhs-ci-develop
-        alias: ext-tra
-      - projectId: 380
-        scheduleId: 100
-        testResultUrl: https://allure.ada-luccs.internal-work.io/allure-ui/allure-docker-service-ui/projects/transit-oo-tra-service-sys-arhs-ci-develop
-        alias: tra
-      - projectId: 260
-        scheduleId: 99
-        testResultUrl: https://allure.ada-luccs.internal-work.io/allure-ui/allure-docker-service-ui/projects/transit-gms-service-sys-arhs-ci-develop
-        alias: gms
